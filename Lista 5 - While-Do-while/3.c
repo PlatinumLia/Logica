@@ -9,18 +9,18 @@ int main()
 	
 	printf("-- Idade e Gênero --\n\n");
 	
-	while(i <= 4)
+	do
 	{
 		do
 		{
 			printf("Qual o seu gênero (F/M)?\n");
-			scanf("%c", &genero);
+			scanf(" %c", &genero);
 			genero = toupper(genero);
-		}while(genero != 'F' || genero != 'M');
+		}while(genero == 'F' && genero == 'M');
 		
 		do
 		{
-			printf("Digite a sua idade: ");
+			printf("Digite a sua idade\n");
 			scanf("%d", &idade);
 		}while(idade >= 125);
 		
@@ -49,12 +49,12 @@ int main()
 				}
 			}
 		i++;
-	}	
+	}while(i <= 10);
 
 	mediaIM = (float)totalF / quantF;
 
-	printf("A maior idade é: %d.\n E a menor idade é: %d\n", maiorI, menorI);
-	printf("A média da idade das mulheres é: %.2f\n", mediaIM);
+	printf("A maior idade é: %d.\nE a menor idade é: %d\n\n", maiorI, menorI);
+	printf("A média da idade das mulheres é: %.2f\n\n", mediaIM);
 	printf("A quantidade de homens é: %d", quantM);
 
 	return 0;
