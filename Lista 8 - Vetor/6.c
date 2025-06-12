@@ -2,7 +2,7 @@
 
 int main()
 {
-	int i, vetorV[20], maiorValor, posicao = 0;
+	int i, vetorV[20], menorValor, posicao = 0;
 	
 	printf("\n---Posição do maior item de um vetor---\n\n");
 	
@@ -10,15 +10,21 @@ int main()
 	{
 		do
 		{
-			printf("Digite o %dº número: ", i + 1);
+			printf("Digite o %dº número : ", i + 1);
 			scanf("%d", &vetorV[i]);
 			
-			if(vetorV[i] > maiorValor)
+			if(i == 0)
 			{
-				maiorValor = vetorV[i];
+				menorValor = vetorV[i];
 				posicao = i;
-			}
-			
+			}else
+				{
+					if(vetorV[i] < menorValor)
+					{
+						menorValor = vetorV[i];
+						posicao = i;
+					}
+				}
 			if(vetorV[i] < 0)
 			{
 				printf("Digite um número positivo");
@@ -27,9 +33,8 @@ int main()
 	}
 	
 	printf("\n\n---RESULTADO FINAL---\n\n");
-	printf("O maior valor é: %d\n", maiorValor);
+	printf("O menor valor é: %d\n", menorValor);
 	printf("Este valor está na posição %d do vetor V", posicao + 1);
 	
 	return 0;
 }
-
