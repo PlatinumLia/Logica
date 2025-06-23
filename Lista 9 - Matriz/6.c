@@ -9,24 +9,24 @@ int main()
   printf("---Média geral de um turma---\n\n");
   
   /*Laço para saber quantos alunos há na turma*/
-  do
-  {
-    printf("Qual a quantidade de alunos na turma?\n");
-    scanf(" %d", &n);
+	do
+	{
+		printf("Qual a quantidade de alunos na turma?\n");
+		scanf(" %d", &n);
     
-    if(n <= 0)
-    {
-      printf("\nA turma não pode ter menos que 1 aluno!\n\n");
-    }else
-        {
-          if(n > 100)
-          {
-           printf("\nA turma não pode exceder 100 alunos!\n\n");
-          }
-        }
-  }while(n <= 0 || n > 100);
-  
-  /*Laço para obtenção da matriz das notas*/
+		if(n <= 0)
+		{
+		printf("\nA turma não pode ter menos que 1 aluno!\n\n");
+		}else
+		{
+			if(n > 100)
+			{
+				printf("\nA turma não pode exceder 100 alunos!\n\n");
+			}
+		}
+	}while(n <= 0 || n > 100);
+	
+	/*Laço para obtenção da matriz das notas*/
     for(i = 0; i < n; i++)
     {
         for(j = 0; j < 4; j++)
@@ -70,9 +70,9 @@ int main()
         printf("  %d\t\t", i + 1);
         for(j = 0; j < 4; j++)
         {
-            printf("\t%.1f\t", notas[i][j]);
+            printf(" %.1f\t\t", notas[i][j]);
         }
-        printf("\t %.1f \n", mediaAluno[i]);
+        printf("\t%.1f \n", mediaAluno[i]);
     }
     mediaGeral = mediaGeralSoma / n;
     printf("\n\nMÉDIA GERAL...................: %.1f", mediaGeral);
