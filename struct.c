@@ -9,38 +9,54 @@ int main()
     {
         int codigo;
         char nome[TAM];
-        char genero[TAM];
+        char genero;
         int idade;
         float altura;
         float peso;
     };
     struct TPessoa cadastro[TAM];
-    int i = 0, n;
+    int i, n;
+    char opt;
     
-    printf("--- CADASTRO DE PESSOAS ---\n\n");
+    printf("--- SISTEMA DE CADASTRO DE PESSOAS ---\n\n");
     
-    printf("Quantidade de pessoas que deseja cadastrar: ");
-    scanf("%d", &n);
-    printf("\n\n");
+    printf("MENU:\n\n");
+    printf("(A). Cadastrar pessoa(s).\n");
+    printf("(B). Alterar dados de uma pessoa.\n");
+    printf("(C). Excluir dados de uma pessoa.\n");
+    printf("(D). Mostrar dados de uma pessoa.\n");
+    printf("(E). Mostrar dados de todas os cadastros.\n");
+    printf("(F). Encerrar programa.\n\n");
     
-    do //Laço para o registro das pessoas
+    do
     {
-        printf("Código da pessoa %d: ", i + 1);
-        scanf("%d", &cadastro[i].codigo);
-        printf("Nome: ");
-        fgets(cadastro[i].nome, 100, stdin);
-    cadastro[i].nome[strcspn(cadastro[i].nome, "\n")] = '\0'; // Substitui o "\n"
-        printf("Gênero (M/F): ");
-        scanf(" %c", &cadastro[i].genero);
-        printf("Idade: ");
-        scanf("%d", &cadastro[i].idade);
-        printf("Altura: ");
-        scanf("%f", &cadastro[i].altura);
-        printf("Peso: ");
-        scanf("%f", &cadastro[i].peso);
-    }while(i < n);
-    
-    printf("\n\n");
+        printf("Opção desejada: ");
+        scanf(" %c", &opt);
+        opt = toupper(opt); 
+        if(opt != 'A' && opt != 'B' && opt != 'C' && opt != 'D' && opt != 'E' && opt != 'F')
+        {
+            printf("\nOpção inválida.\nEscolha uma opção válida!\n\n");
+        }
+        
+        if(opt == 'A')
+        {
+            do
+            {
+                printf("Nº de pessoas que deseja cadastrar (máx. 100): ");
+                scanf("%d", &n);
+                if(n < 0)
+                {
+                    printf("\nA quantidade não pode ser menor que 0\n\n");
+                }else
+                {
+                    if(n > 100)
+                    {
+                        printf("\nO cadastro não pode ter mais de 100 pessoas.\n\n");
+                    }
+                }
+            }while(n <= 0 && n > 100);
+        }
+    }while(opt != 'A' && opt != 'B' && opt != 'C' && opt != 'D' && opt != 'E' && opt != 'F');
 
     return 0;
 }
